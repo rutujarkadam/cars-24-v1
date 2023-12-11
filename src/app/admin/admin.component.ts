@@ -9,9 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AdminComponent {
   carsOptions:any;
-  brandList:any;
-  modelOptions:any = [];
+  modelOptions:any;
   carDetailsForm : FormGroup;
+codeOptions: any;
 constructor(private serive : CarsService, private fb : FormBuilder){
   this.carDetailsForm = this.fb.group({
     brand : ['',Validators.required],
@@ -35,7 +35,6 @@ constructor(private serive : CarsService, private fb : FormBuilder){
 ngOnInit(){
   this.serive.getCarsOptions().subscribe((res:any) => {
     this.carsOptions = res.data;
-    this.brandList = res.data[0].brandList;
     console.log("Options",res.data);
   }, error => {
     console.error(error);
@@ -44,12 +43,21 @@ ngOnInit(){
 }
 onCarBrandSelect() {
   let modelList:any=[];
-  this.brandList.forEach((item:any)=>{
+  this.carsOptions[0].brandList.forEach((item:any)=>{
     if(item.brand==this.carDetailsForm.controls['brand'].value){
       modelList=item.models     
     }
   });
   this.modelOptions = modelList;
+}
+onStateSelect(){
+  let codes:any = [];
+  this.carsOptions[0].states.forEach((item:any) => {
+    if(item.state == this.carDetailsForm.controls['state'].value){
+      codes=item.codes;
+    }
+  });
+  this.codeOptions = codes;
 }
 save(){
 
