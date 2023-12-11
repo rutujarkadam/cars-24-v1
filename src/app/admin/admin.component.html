@@ -1,8 +1,15 @@
 <form [formGroup]="carDetailsForm">
   <mat-card>
     <h3>Select Car's Brand</h3>
-    <mat-select formControlName="brand" (selectionChange)="onCarBrandSelect()">
-      <mat-option *ngFor="let item of brandList" [value]="item.brand">
+    <mat-select
+      formControlName="brand"
+      (selectionChange)="onCarBrandSelect()"
+      *ngIf="carsOptions"
+    >
+      <mat-option
+        *ngFor="let item of carsOptions[0].brandList"
+        [value]="item.brand"
+      >
         {{ item.brand }}</mat-option
       >
     </mat-select>
