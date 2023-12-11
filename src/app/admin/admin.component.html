@@ -2,118 +2,144 @@
   <mat-card *ngIf="carsOptions">
     <h3>Select Car's Brand</h3>
     <mat-form-field>
-    <mat-select formControlName="brand" (selectionChange)="onCarBrandSelect()">
-      <mat-option *ngFor="let item of carsOptions[0].brandList" [value]="item.brand">
-        {{ item.brand }}</mat-option
+      <mat-select
+        formControlName="brand"
+        (selectionChange)="onCarBrandSelect()"
+        *ngIf="carsOptions"
       >
-</mat-select>
-</mat-form-field>
+        <mat-option
+          *ngFor="let item of carsOptions[0].brandList"
+          [value]="item.brand"
+        >
+          {{ item.brand }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Select Car's Model</h3>
     <mat-form-field>
-    <mat-select formControlName="model">
-      <mat-option *ngFor="let item of modelOptions" [value]="item">
-        {{ item }}</mat-option
-      >
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="model">
+        <mat-option *ngFor="let item of modelOptions" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Select Car's Make Year</h3>
     <mat-form-field>
-    <mat-select formControlName="makeYear" >
-      <mat-option *ngFor="let item of carsOptions[0].makeYear" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="makeYear">
+        <mat-option *ngFor="let item of carsOptions[0].makeYear" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Variant</h3>
     <mat-form-field>
-    <mat-select formControlName="variant" >
-      <mat-option *ngFor="let item of carsOptions[0].variants" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="variant">
+        <mat-option *ngFor="let item of carsOptions[0].variants" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>KMs Driven</h3>
     <mat-form-field>
-    <mat-select formControlName="kmDriven" >
-      <mat-option *ngFor="let item of carsOptions[0].kmDriven" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="kmDriven">
+        <mat-option *ngFor="let item of carsOptions[0].kmDriven" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Features</h3>
     <mat-form-field>
-    <mat-select formControlName="features" multiple="true">
-      <mat-option *ngFor="let item of carsOptions[0].features" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="features" multiple="true">
+        <mat-option *ngFor="let item of carsOptions[0].features" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Transmission</h3>
     <mat-form-field>
-    <mat-select formControlName="transmission" >
-      <mat-option *ngFor="let item of carsOptions[0].transmissions" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="transmission">
+        <mat-option
+          *ngFor="let item of carsOptions[0].transmissions"
+          [value]="item"
+        >
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Body Type</h3>
     <mat-form-field>
-    <mat-select formControlName="bodyType" >
-      <mat-option *ngFor="let item of carsOptions[0].bodyTypes" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="bodyType">
+        <mat-option
+          *ngFor="let item of carsOptions[0].bodyTypes"
+          [value]="item"
+        >
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Color</h3>
     <mat-form-field>
-    <mat-select formControlName="color" >
-      <mat-option *ngFor="let item of carsOptions[0].colors" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="color">
+        <mat-option *ngFor="let item of carsOptions[0].colors" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Seats</h3>
     <mat-form-field>
-    <mat-select formControlName="seats" >
-      <mat-option *ngFor="let item of carsOptions[0].seats" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="seats">
+        <mat-option *ngFor="let item of carsOptions[0].seats" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>Owner</h3>
     <mat-form-field>
-    <mat-select formControlName="owner" >
-      <mat-option *ngFor="let item of carsOptions[0].owners" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="owner">
+        <mat-option *ngFor="let item of carsOptions[0].owners" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>State</h3>
     <mat-form-field>
-    <mat-select formControlName="state" (selectionChange)="onStateSelect()">
-      <mat-option *ngFor="let item of carsOptions[0].states" [value]="item.state">
-        {{ item.state }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="state" (selectionChange)="onStateSelect()">
+        <mat-option
+          *ngFor="let item of carsOptions[0].states"
+          [value]="item.state"
+        >
+          {{ item.state }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>State Code</h3>
     <mat-form-field>
-    <mat-select formControlName="stateCode" >
-      <mat-option *ngFor="let item of codeOptions" [value]="item">
-        {{ item }}</mat-option>
-</mat-select>
-</mat-form-field>
+      <mat-select formControlName="stateCode">
+        <mat-option *ngFor="let item of codeOptions" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
 
     <h3>City</h3>
     <mat-form-field>
-        <input matInput type="text" formControlName="city">
+      <input matInput type="text" formControlName="city" />
     </mat-form-field>
 
     <h3>Price</h3>
 
-    
     <button mat-raised-button id="add">Add</button>
   </mat-card>
 </form>
