@@ -112,8 +112,14 @@
     </mat-form-field>
 
     <h3>Price</h3>
+    <mat-form-field>
+        <input matInput type="number" formControlName="price">
+    </mat-form-field>
 
-    
-    <button mat-raised-button id="add">Add</button>
+    <button 
+    mat-raised-button 
+    color="primary"
+    (click)="add()"
+    [disabled]="!carDetailsForm.valid">Add</button>
   </mat-card>
 </form>

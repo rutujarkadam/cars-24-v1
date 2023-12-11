@@ -12,7 +12,7 @@ export class AdminComponent {
   modelOptions:any;
   carDetailsForm : FormGroup;
 codeOptions: any;
-constructor(private serive : CarsService, private fb : FormBuilder){
+constructor(private service : CarsService, private fb : FormBuilder){
   this.carDetailsForm = this.fb.group({
     brand : ['',Validators.required],
     model : ['',Validators.required],
@@ -33,7 +33,7 @@ constructor(private serive : CarsService, private fb : FormBuilder){
   
 }
 ngOnInit(){
-  this.serive.getCarsOptions().subscribe((res:any) => {
+  this.service.getCarsOptions().subscribe((res:any) => {
     this.carsOptions = res.data;
     console.log("Options",res.data);
   }, error => {
@@ -59,7 +59,28 @@ onStateSelect(){
   });
   this.codeOptions = codes;
 }
-save(){
-
+add(){
+  let data = this.carDetailsForm.value;
+let body = {
+  brand: data.brand,
+  model: data.model,
+  makeYear: data.makeYear,
+  variant: data.variant,
+  kmDriven: data.kmDriven,
+  features: data.features,
+  transmission: data.transmission,
+  bodyType: data.bodyType,
+  color: data.color,
+  seats: data.seats,
+  owner: data.owner,
+  state: data.state,
+  stateCode: data.stateCode,
+  city: data.city,
+  price: data.price,
+};
+this.service.postCarInfo(body);
+this.carDetailsForm.reset;
 }
+
+
 }
