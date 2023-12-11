@@ -5,20 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule} from '@angular/forms';
-import { MatCardModule} from '@angular/material/card';
-import { MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input';
-import { MatSelectModule} from '@angular/material/select';
-import { MatButtonModule} from '@angular/material/button';
-import { MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminComponent
-  ],
+  declarations: [AppComponent, AdminComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,9 +28,9 @@ import { MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
