@@ -25,10 +25,26 @@
 }
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); //two card per row
+  grid-template-columns: repeat(3, 1fr); //two card per row
   gap: 20px; //adjust the gap as needed
+  background-color: aliceblue;
 }
 .img {
   height: 200px;
   width: 200px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  margin-right: 20px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
 }

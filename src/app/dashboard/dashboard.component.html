@@ -33,7 +33,33 @@
   <div class="container">
     <mat-card *ngFor="let item of allcar">
       <div>
-        <b>cBrand:</b> {{ item.brand }}<br />
+        <img src="../../assets/images/{{ item.brand }}.jpeg" class="img" />
+        <br />
+        <ul>
+          <li>{{ item.brand }}</li>
+          <li>{{ item.model }}</li>
+          <li>{{ item.makeYear }}</li>
+          <li>{{ item.state }}</li>
+          <li>{{ item.stateCode }}</li>
+        </ul>
+        <ul>
+          <li>{{ item.variant }}</li>
+          <li>{{ item.kmDriven }}</li>
+          <li>{{ item.transmission }}</li>
+        </ul>
+        <ul>
+          <li>{{ item.features }}</li>
+        </ul>
+        <ul>
+          <li>{{ item.owner }}</li>
+          <li>{{ item.seats }}</li>
+          color
+          <li>{{ item.color }}</li>
+          Price:
+          <li>{{ item.price }}</li>
+        </ul>
+
+        <!-- <b>cBrand:</b> {{ item.brand }}<br />
         <b>cModel:</b> {{ item.model }}<br />
         <b>cYear:</b>{{ item.makeYear }}<br />
         <b>carState:</b>{{ item.state }} <br />
@@ -46,8 +72,7 @@
         <b>seats:</b>{{ item.seats }}<br />
         <b>color:</b>{{ item.color }}<br />
         <b>bodyType:</b><br />
-        <b>price:</b>{{ item.price }}<br />
-        <img src="../../assets/images/{{ item.brand }}.jpeg" class="img" />
+        <b>price:</b>{{ item.price }}<br /> -->
       </div>
     </mat-card>
   </div>
