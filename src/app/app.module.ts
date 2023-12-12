@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
+import { MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [AppComponent, AdminComponent, LoginComponent],
@@ -29,6 +30,7 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent],

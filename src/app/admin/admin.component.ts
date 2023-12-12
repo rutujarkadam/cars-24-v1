@@ -78,8 +78,13 @@ let body = {
   city: data.city,
   price: data.price,
 };
-this.service.postCarInfo(body);
-this.carDetailsForm.reset;
+this.service.postCarInfo(body).subscribe((res:any)=>{
+  console.log('success',res)
+},
+(error)=>{
+  console.log('error',error)
+});
+this.carDetailsForm.value.reset;
 }
 
 
