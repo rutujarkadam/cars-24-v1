@@ -18,8 +18,8 @@ export class CarsService {
     return this.http.get(url);
   }
 
-  postUsers() {
-    const url = '';
-    return this.http.get(url);
+  postUsers(body: any) {
+    const url = 'http://localhost:3000/registerUser';
+    return this.http.post(url, body);
   }
 }
