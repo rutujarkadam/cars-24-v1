@@ -1,8 +1,9 @@
 <form [formGroup]="carDetailsForm">
   <mat-card *ngIf="carsOptions">
-    <mat-stepper>
-      <mat-step label="Brand">
-        <h3>Select Car's Brand</h3>
+    <mat-stepper linear="false" class="stepper">
+      <mat-step label="Basic">
+        <mat-card class="card">
+          <h3>Select Car's Brand</h3>
         <mat-form-field class="formfield">
         <mat-select
         formControlName="brand"
@@ -17,8 +18,6 @@
         >
         </mat-select>
       </mat-form-field>
-      </mat-step>
-      <mat-step label="Model">
         <h3>Select Car's Model</h3>
         <mat-form-field class="formfield">
           <mat-select formControlName="model">
@@ -27,9 +26,7 @@
             >
           </mat-select>
         </mat-form-field>
-      </mat-step>
 
-      <mat-step label="Year">
         <h3>Select Car's Make Year</h3>
     <mat-form-field class="formfield">
       <mat-select formControlName="makeYear">
@@ -38,8 +35,6 @@
         >
       </mat-select>
     </mat-form-field>
-      </mat-step>
-      <mat-step label="Variant">
         <h3>Variant</h3>
     <mat-form-field class="formfield">
       <mat-select formControlName="variant">
@@ -48,9 +43,14 @@
         >
       </mat-select>
     </mat-form-field>
+    <button mat-button color="primary" matStepperNext>Next</button>
+
+        </mat-card>
+        
       </mat-step>
-      <mat-step label="KM">
-        <h3>KMs Driven</h3>
+      <mat-step label="Advanced">
+        <mat-card class="card">
+          <h3>KMs Driven</h3>
     <mat-form-field class="formfield">
       <mat-select formControlName="kmDriven">
         <mat-option *ngFor="let item of carsOptions[0].kmDriven" [value]="item">
@@ -58,8 +58,6 @@
         >
       </mat-select>
     </mat-form-field>
-      </mat-step>
-      <mat-step label="Features">
         <h3>Features</h3>
     <mat-form-field class="formfield">
       <mat-select formControlName="features" multiple="true">
@@ -68,8 +66,6 @@
         >
       </mat-select>
     </mat-form-field>
-      </mat-step>
-      <mat-step label="Transmission">
         <h3>Transmission</h3>
     <mat-form-field class="formfield">
       <mat-select formControlName="transmission">
@@ -81,52 +77,7 @@
         >
       </mat-select>
     </mat-form-field>
-      </mat-step>
-      <mat-step label="Body">
-        <h3>Body Type</h3>
-    <mat-form-field class="formfield">
-      <mat-select formControlName="bodyType">
-        <mat-option
-          *ngFor="let item of carsOptions[0].bodyTypes"
-          [value]="item"
-        >
-          {{ item }}</mat-option
-        >
-      </mat-select>
-    </mat-form-field>
-      </mat-step>
-      <mat-step label="Color">
-        <h3>Color</h3>
-    <mat-form-field class="formfield">
-      <mat-select formControlName="color">
-        <mat-option *ngFor="let item of carsOptions[0].colors" [value]="item">
-          {{ item }}</mat-option
-        >
-      </mat-select>
-    </mat-form-field>
-      </mat-step>
-      <mat-step label="Seats">
-        <h3>Seats</h3>
-    <mat-form-field class="formfield">
-      <mat-select formControlName="seats">
-        <mat-option *ngFor="let item of carsOptions[0].seats" [value]="item">
-          {{ item }}</mat-option
-        >
-      </mat-select>
-    </mat-form-field>
-      </mat-step>
-      <mat-step label="Owner">
-        <h3>Owner</h3>
-    <mat-form-field class="formfield">
-      <mat-select formControlName="owner">
-        <mat-option *ngFor="let item of carsOptions[0].owners" [value]="item">
-          {{ item }}</mat-option
-        >
-      </mat-select>
-    </mat-form-field>
-      </mat-step>
-      <mat-step label="State">
-        <h3>State</h3>
+    <h3>State</h3>
     <mat-form-field class="formfield">
       <mat-select formControlName="state" (selectionChange)="onStateSelect()">
         <mat-option
@@ -149,9 +100,58 @@
     <mat-form-field class="formfield">
       <input matInput type="text" formControlName="city" />
     </mat-form-field>
+    <button mat-button color="primary" matStepperNext>Next</button>
+        </mat-card>
+        
       </mat-step>
-      <mat-step label="Price">
-        <h3>Price</h3>
+      <mat-step label="Visual">
+      <mat-card class="card">
+        <h3>Body Type</h3>
+    <mat-form-field class="formfield">
+      <mat-select formControlName="bodyType">
+        <mat-option
+          *ngFor="let item of carsOptions[0].bodyTypes"
+          [value]="item"
+        >
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+ 
+        <h3>Color</h3>
+    <mat-form-field class="formfield">
+      <mat-select formControlName="color">
+        <mat-option *ngFor="let item of carsOptions[0].colors" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+      
+        <h3>Seats</h3>
+    <mat-form-field class="formfield">
+      <mat-select formControlName="seats">
+        <mat-option *ngFor="let item of carsOptions[0].seats" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+     
+        <h3>Owner</h3>
+    <mat-form-field class="formfield">
+      <mat-select formControlName="owner">
+        <mat-option *ngFor="let item of carsOptions[0].owners" [value]="item">
+          {{ item }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary" matStepperNext>Next</button>
+      </mat-card>
+      
+        
+      </mat-step>
+       <mat-step label="Price">
+        <mat-card class="card">
+          <h3>Price</h3>
     <mat-form-field class="formfield">
         <input matInput type="number" formControlName="price">
     </mat-form-field>
@@ -161,6 +161,8 @@
     color="primary"
     (click)="add()"
     [disabled]="!carDetailsForm.valid">Add</button>
+        </mat-card>
+        
       </mat-step>
     </mat-stepper>
   </mat-card>
