@@ -6,7 +6,7 @@
       </h2>
 
       <mat-form-field>
-        <mat-icon class="icon">supervised_user_circle</mat-icon>
+        <mat-icon class="icon">account_circle</mat-icon>
         <input
           style="margin-left: 25px"
           matInput
@@ -39,7 +39,7 @@
       <mat-form-field>
         <mat-icon class="icon">lock</mat-icon>
         <input
-          [type]="hide1 ? 'password' : 'text'"
+          [type]="hide2 ? 'password' : 'text'"
           style="margin-left: 25px"
           matInput
           type="password"
@@ -63,6 +63,37 @@
           formControlName="emailId"
         />
       </mat-form-field>
+      <h2 style="color: blue; margin-left: 4px; font-family: none">
+        <b>Gender</b>
+      </h2>
+      <mat-form-field>
+        <mat-icon class="icon">supervised_user_circle</mat-icon>
+        <mat-select
+          style="margin-left: 25px"
+          placeholder="gender"
+          formControlName="gender"
+        >
+          <mat-option *ngFor="let item of gender" [value]="item">{{
+            item
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h2 style="color: blue; margin-left: 4px; font-family: none">
+        <b>Type</b>
+      </h2>
+      <mat-form-field>
+        <mat-icon class="icon">supervisor_account</mat-icon>
+        <mat-select
+          style="margin-left: 25px"
+          placeholder="type"
+          formControlName="type"
+        >
+          <mat-option *ngFor="let item of type" [value]="item">{{
+            item
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <button
         mat-raised-button
         color="primary"
@@ -70,8 +101,21 @@
         [disabled]="!registrationForm.valid"
         (click)="submitdata()"
       >
-        submit
+        add user
       </button>
     </mat-card>
   </form>
 </div>
+
+<!-- <mat-form-field>
+  <mat-icon class="icon">supervisor_account</mat-icon>
+  <mat-select
+    style="margin-left: 25px"
+    placeholder="type"
+    formControlName="type"
+  >
+    <mat-option *ngFor="let item of type" [value]="item">{{
+      item
+    }}</mat-option>
+  </mat-select>
+</mat-form-field> -->
