@@ -1,0 +1,46 @@
+<div style="width: 23%; margin-left: 563px">
+  <form [formGroup]="loginForm">
+    <h1
+      style="
+        margin-left: 117px;
+        font-family: none;
+        font-size: xx-large;
+        margin-top: 18px;
+      "
+    >
+      Login
+    </h1>
+    <mat-card style="margin-top: 27px">
+      <h2 style="margin-left: 125px; color: maroon">
+        <b>userId</b>
+      </h2>
+      <mat-form-field style="background: cornsilk">
+        <input
+          matInput
+          text="text"
+          placeholder="userId"
+          formControlName="userId"
+        />
+      </mat-form-field>
+
+      <h2 style="margin-left: 113px; color: darkred"><b>password</b></h2>
+      <mat-form-field style="background: cornsilk">
+        <input
+          matInput
+          text="password"
+          placeholder="password"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="!loginForm.valid"
+        (click)="submit()"
+      >
+        Submit
+      </button>
+    </mat-card>
+  </form>
+</div>
