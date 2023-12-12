@@ -8,7 +8,8 @@ import { CarsService } from '../cars.service';
 })
 export class DashboardComponent {
   search: any;
-  allcar: any;
+  allcar: any = [];
+  cararray: any = [];
   constructor(private service: CarsService) {}
   ngOnInit() {
     this.service.getCarInfo().subscribe(
@@ -23,4 +24,14 @@ export class DashboardComponent {
   }
   getFilterData() {}
   getSortData() {}
+  findCar() {
+    this.cararray = this.allcar.filter((item: any) => {
+      if (
+        item.brand.toLowerCase().includes(this.search.toLowerCase()) ||
+        item.model.toLowerCase().includes(this.search.toLowerCase())
+      ) {
+        return item;
+      }
+    });
+  }
 }

@@ -17,7 +17,12 @@
           placeholder="search product"
         />
       </mat-form-field>
-      <button mat-raised-button color="primary" style="position: absolute">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="findCar()"
+        style="position: absolute"
+      >
         Search
       </button>
     </div>
@@ -29,50 +34,42 @@
   </div>
 </mat-card>
 <!-- second matcard -->
+<h2>
+  <u>Total Available Cars:{{ allcar.length }}</u>
+</h2>
 <mat-card class="mattwo">
   <div class="container">
-    <mat-card *ngFor="let item of allcar">
+    <mat-card *ngFor="let item of allcar" class="matcardata">
       <div>
         <img src="../../assets/images/{{ item.brand }}.jpeg" class="img" />
         <br />
-        <ul>
-          <li>{{ item.brand }}</li>
-          <li>{{ item.model }}</li>
-          <li>{{ item.makeYear }}</li>
-          <li>{{ item.state }}</li>
-          <li>{{ item.stateCode }}</li>
-        </ul>
-        <ul>
-          <li>{{ item.variant }}</li>
-          <li>{{ item.kmDriven }}</li>
-          <li>{{ item.transmission }}</li>
-        </ul>
-        <ul>
-          <li>{{ item.features }}</li>
-        </ul>
-        <ul>
-          <li>{{ item.owner }}</li>
-          <li>{{ item.seats }}</li>
-          color
-          <li>{{ item.color }}</li>
-          Price:
-          <li>{{ item.price }}</li>
-        </ul>
+        <p>
+          <b style="font-size: 18px">{{ item.makeYear }} </b>&nbsp;&nbsp;<b
+            style="font-size: 22px"
+            >{{ item.brand }} </b
+          >&nbsp;&nbsp;&nbsp;<b style="font-size: 15px">{{ item.model }} </b>
+        </p>
+        <p>
+          <b style="font-size: 15px">{{ item.state }} </b>&nbsp;&nbsp;<b
+            style="font-size: 15px"
+            >{{ item.stateCode }} </b
+          >&nbsp;&nbsp;<b style="font-size: 15px">{{ item.variant }} </b
+          >&nbsp;&nbsp;<b style="font-size: 15px">{{ item.owner }} </b>
+        </p>
+        <p>
+          <u style="font-size: 12px; margin-left: 20px">{{ item.features }}</u>
+        </p>
 
-        <!-- <b>cBrand:</b> {{ item.brand }}<br />
-        <b>cModel:</b> {{ item.model }}<br />
-        <b>cYear:</b>{{ item.makeYear }}<br />
-        <b>carState:</b>{{ item.state }} <br />
-        <b>carRTO:</b>{{ item.stateCode }}<br />
-        <b>carVariant:</b>{{ item.variant }}<br />
-        <b> carKm:</b>{{ item.kmDriven }}<br />
-        <b>features:</b>{{ item.features }}<br />
-        <b>trans:</b>{{ item.transmission }}<br />
-        <b>carOwner:</b>{{ item.owner }}<br />
-        <b>seats:</b>{{ item.seats }}<br />
-        <b>color:</b>{{ item.color }}<br />
-        <b>bodyType:</b><br />
-        <b>price:</b>{{ item.price }}<br /> -->
+        <ul>
+          <li>{{ item.seats }}</li>
+          <li>{{ item.bodyType }}</li>
+          <li>{{ item.transmission }}</li>
+          <li>{{ item.color }}</li>
+        </ul>
+        <p>
+          <b style="font-size: 18px">RS:{{ item.price }}</b>
+          <b style="margin-left: 50px; font-size: 15px">{{ item.kmDriven }}</b>
+        </p>
       </div>
     </mat-card>
   </div>
