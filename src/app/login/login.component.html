@@ -1,46 +1,62 @@
-<div style="width: 23%; margin-left: 563px">
-  <form [formGroup]="loginForm">
-    <h1
-      style="
-        margin-left: 117px;
-        font-family: none;
-        font-size: xx-large;
-        margin-top: 18px;
-      "
-    >
-      Login
-    </h1>
-    <mat-card style="margin-top: 27px">
-      <h2 style="margin-left: 125px; color: maroon">
-        <b>userId</b>
-      </h2>
-      <mat-form-field style="background: cornsilk">
-        <input
-          matInput
-          text="text"
-          placeholder="userId"
-          formControlName="userId"
-        />
-      </mat-form-field>
+<div>
+  <div style="width: 23%; margin-left: 563px">
+    <img style="height: 224px; width: 213px" src="../../assets/images.jpeg" />
 
-      <h2 style="margin-left: 113px; color: darkred"><b>password</b></h2>
-      <mat-form-field style="background: cornsilk">
-        <input
-          matInput
-          text="password"
-          placeholder="password"
-          formControlName="password"
-        />
-      </mat-form-field>
-      <button
-        type="submit"
-        mat-raised-button
-        color="primary"
-        [disabled]="!loginForm.valid"
-        (click)="submit()"
+    <form [formGroup]="loginForm">
+      <h1
+        style="
+          margin-left: 117px;
+          font-family: none;
+          font-size: xx-large;
+          margin-top: -84px;
+          color: blue;
+          margin-left: 203px;
+        "
       >
-        Submit
-      </button>
-    </mat-card>
-  </form>
+        Login
+      </h1>
+      <div style="margin-top: 31px; margin-left: 36px">
+        <b>Please enter your userId and password!!</b>
+      </div>
+      <mat-card style="margin-top: 6px">
+        <h2 style="margin-left: 125px; color: blue; font-family: none">
+          <b>userId</b>
+        </h2>
+
+        <mat-form-field>
+          <mat-icon class="icon">perm_identity</mat-icon>
+          <input
+            style="margin-left: 28px"
+            matInput
+            type="text"
+            placeholder="userId"
+            formControlName="userId"
+          />
+        </mat-form-field>
+
+        <h2 style="margin-left: 113px; color: blue; font-family: none">
+          <b>password</b>
+        </h2>
+        <mat-form-field>
+          <mat-icon class="icon">lock</mat-icon>
+          <input
+            style="margin-left: 28px"
+            matInput
+            type="password"
+            placeholder="password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="!loginForm.valid"
+          (click)="submit()"
+        >
+          Submit
+        </button>
+      </mat-card>
+    </form>
+  </div>
 </div>

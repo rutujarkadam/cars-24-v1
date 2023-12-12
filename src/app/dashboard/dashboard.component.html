@@ -1,0 +1,79 @@
+<p>dashboard works!</p>
+<mat-card class="firstmat">
+  <div class="innerdiv">
+    <div>
+      <button mat-raised-button (click)="getFilterData()" class="btnclass">
+        <mat-icon>filter_list</mat-icon>Filterdata
+      </button>
+    </div>
+    <div>
+      <mat-form-field style="margin-left: 100px; width: 200px; height: 60px">
+        <input
+          style="height: 60"
+          matInput
+          type="=text"
+          name="search"
+          [(ngModel)]="search"
+          placeholder="search product"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" style="position: absolute">
+        Search
+      </button>
+    </div>
+    <div>
+      <button mat-raised-button (click)="getSortData()" class="sort">
+        <mat-icon>filter_list</mat-icon>Sortdata
+      </button>
+    </div>
+  </div>
+</mat-card>
+<!-- second matcard -->
+<mat-card class="mattwo">
+  <div class="container">
+    <mat-card *ngFor="let item of allcar">
+      <div>
+        <img src="../../assets/images/{{ item.brand }}.jpeg" class="img" />
+        <br />
+        <ul>
+          <li>{{ item.brand }}</li>
+          <li>{{ item.model }}</li>
+          <li>{{ item.makeYear }}</li>
+          <li>{{ item.state }}</li>
+          <li>{{ item.stateCode }}</li>
+        </ul>
+        <ul>
+          <li>{{ item.variant }}</li>
+          <li>{{ item.kmDriven }}</li>
+          <li>{{ item.transmission }}</li>
+        </ul>
+        <ul>
+          <li>{{ item.features }}</li>
+        </ul>
+        <ul>
+          <li>{{ item.owner }}</li>
+          <li>{{ item.seats }}</li>
+          color
+          <li>{{ item.color }}</li>
+          Price:
+          <li>{{ item.price }}</li>
+        </ul>
+
+        <!-- <b>cBrand:</b> {{ item.brand }}<br />
+        <b>cModel:</b> {{ item.model }}<br />
+        <b>cYear:</b>{{ item.makeYear }}<br />
+        <b>carState:</b>{{ item.state }} <br />
+        <b>carRTO:</b>{{ item.stateCode }}<br />
+        <b>carVariant:</b>{{ item.variant }}<br />
+        <b> carKm:</b>{{ item.kmDriven }}<br />
+        <b>features:</b>{{ item.features }}<br />
+        <b>trans:</b>{{ item.transmission }}<br />
+        <b>carOwner:</b>{{ item.owner }}<br />
+        <b>seats:</b>{{ item.seats }}<br />
+        <b>color:</b>{{ item.color }}<br />
+        <b>bodyType:</b><br />
+        <b>price:</b>{{ item.price }}<br /> -->
+      </div>
+    </mat-card>
+  </div>
+</mat-card>
