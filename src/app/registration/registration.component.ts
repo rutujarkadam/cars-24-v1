@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validator, FormBuilder, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -14,7 +14,7 @@ export class RegistrationComponent {
   registrationForm: FormGroup;
   encryptSecretKey = 'sdhfhhjrhjkhrireirohriegihgdfjgkdgjrekhru';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService) {
     this.registrationForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
@@ -22,18 +22,27 @@ export class RegistrationComponent {
       emailId: ['', Validators.required],
     });
 
-    const data = localStorage.getItem('users');
-    if (data) this.userData = JSON.parse(data);
+    // const data = localStorage.getItem('users');
+    // if (data) this.userData = JSON.parse(data);
   }
-  ngOnInit() {
-    this.encryptData('hhhhhhhh');
-  }
+  ngOnInit() {}
   submitdata() {
-    console.log(this.registrationForm.value);
-    this.userData.push(this.registrationForm.value);
-    console.log('ppp', this.userData);
-    localStorage.setItem('users', JSON.stringify(this.userData));
-    this.registrationForm.reset();
+    if (
+      this.registrationForm.value.password ==
+      this.registrationForm.value.confirmPassword
+    ) {
+      this.registrationForm.value.password = this.encryptData(
+        this.registrationForm.value.password
+      );
+      delete this.registrationForm.value.confirmPassword;
+      console.log(this.registrationForm.value);
+      this.userData.push(this.registrationForm.value);
+      console.log('data', this.userData);
+      // localStorage.setItem('users', JSON.stringify(this.userData));
+      this.registrationForm.reset();
+    } else {
+      this.toastr.error('password and confirmpassword does not match');
+    }
   }
   pass() {
     this.hide1 = !this.hide1;
@@ -49,8 +58,8 @@ export class RegistrationComponent {
         this.encryptSecretKey
       ).toString();
     } catch (e) {
-      return e;
       console.log(e);
+      return e;
     }
   }
 }
