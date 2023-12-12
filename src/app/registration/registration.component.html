@@ -1,0 +1,77 @@
+<div style="width: 30%; margin-left: 546px">
+  <form [formGroup]="registrationForm">
+    <mat-card>
+      <h2 style="color: blue; margin-left: 4px; font-family: none">
+        <b>User Name</b>
+      </h2>
+
+      <mat-form-field>
+        <mat-icon class="icon">supervised_user_circle</mat-icon>
+        <input
+          style="margin-left: 25px"
+          matInput
+          supervised_user_circle
+          type="text"
+          placeholder="name"
+          formControlName="userName"
+        />
+      </mat-form-field>
+      <h2 style="color: blue; margin-left: 4px; font-family: none">
+        <b>Password</b>
+      </h2>
+      <mat-form-field>
+        <mat-icon class="icon">lock</mat-icon>
+        <input
+          [type]="hide1 ? 'password' : 'text'"
+          style="margin-left: 25px"
+          matInput
+          type="password"
+          placeholder="password"
+          formControlName="password"
+        />
+        <mat-icon class="placeholder" (click)="pass()">
+          {{ hide1 ? "visibility_off" : "visibility" }}</mat-icon
+        >
+      </mat-form-field>
+      <h2 style="color: blue; margin-left: 4px; font-family: none">
+        <b>Confirm Password</b>
+      </h2>
+      <mat-form-field>
+        <mat-icon class="icon">lock</mat-icon>
+        <input
+          [type]="hide1 ? 'password' : 'text'"
+          style="margin-left: 25px"
+          matInput
+          type="password"
+          placeholder="Confirmpassword"
+          formControlName="confirmPassword"
+        />
+        <mat-icon class="placeholder" (click)="Confirmpass()">
+          {{ hide2 ? "visibility_off" : "visibility" }}</mat-icon
+        >
+      </mat-form-field>
+      <h2 style="color: blue; margin-left: 4px; font-family: none">
+        <b>Email ID</b>
+      </h2>
+      <mat-form-field>
+        <mat-icon class="icon"> email</mat-icon>
+        <input
+          style="margin-left: 25px"
+          matInput
+          type="email"
+          placeholder="emailId"
+          formControlName="emailId"
+        />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!registrationForm.valid"
+        (click)="submitdata()"
+      >
+        submit
+      </button>
+    </mat-card>
+  </form>
+</div>
