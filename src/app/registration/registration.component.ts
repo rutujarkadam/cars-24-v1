@@ -57,6 +57,7 @@ export class RegistrationComponent {
 
       this.registrationForm.reset();
       this.router.navigateByUrl('/login');
+      this.toastr.success('login sucessfully');
     } else {
       this.toastr.error('password and confirmpassword does not match');
     }
