@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -21,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     AdminComponent,
     LoginComponent,
+    DashboardComponent,
     RegistrationComponent,
   ],
   imports: [
@@ -35,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
+    FormsModule,
     MatStepperModule,
     ToastrModule.forRoot(),
   ],
