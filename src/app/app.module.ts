@@ -38,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatStepperModule,
     FormsModule,
     MatStepperModule,
     ToastrModule.forRoot(),
