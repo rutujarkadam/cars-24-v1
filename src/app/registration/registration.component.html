@@ -1,4 +1,5 @@
 <div style="width: 30%; margin-left: 546px">
+  <p class="p">Already have an account?<a routerLink="" class="login">Login</a></p>
   <form [formGroup]="registrationForm">
     <mat-card>
       <h2 style="color: blue; margin-left: 4px; font-family: none">
@@ -13,7 +14,7 @@
           supervised_user_circle
           type="text"
           placeholder="name"
-          formControlName="userName"
+          formControlName="username"
         />
       </mat-form-field>
       <h2 style="color: blue; margin-left: 4px; font-family: none">
@@ -28,6 +29,7 @@
           type="password"
           placeholder="password"
           formControlName="password"
+          autocomplete="off"
         />
         <mat-icon class="placeholder" (click)="pass()">
           {{ hide1 ? "visibility_off" : "visibility" }}</mat-icon
@@ -45,6 +47,7 @@
           type="password"
           placeholder="Confirmpassword"
           formControlName="confirmPassword"
+          autocomplete="off"
         />
         <mat-icon class="placeholder" (click)="Confirmpass()">
           {{ hide2 ? "visibility_off" : "visibility" }}</mat-icon

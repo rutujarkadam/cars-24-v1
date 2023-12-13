@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CarsService } from '../cars.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +12,9 @@ export class DashboardComponent {
   search: any;
   allcar: any = [];
   cararray: any = [];
-  constructor(private service: CarsService) {}
+  constructor(private service: CarsService,
+    private router : Router,
+    private toastr : ToastrService    ) {}
   ngOnInit() {
     this.service.getCarInfo().subscribe(
       (res: any) => {
@@ -33,5 +37,64 @@ export class DashboardComponent {
         return item;
       }
     });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+logOut(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('userType');
+    this.router.navigateByUrl('');
+    this.toastr.success('Logged out.')
   }
 }
