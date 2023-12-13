@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ToastrModule } from 'ngx-toastr';
+import { FilterComponent } from './filter/filter.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     DashboardComponent,
     RegistrationComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     MatStepperModule,
     ToastrModule.forRoot(),
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
