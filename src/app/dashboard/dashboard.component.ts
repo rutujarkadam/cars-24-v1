@@ -28,7 +28,7 @@ export class DashboardComponent {
   getFilterData() {
     const dialogRef = this.dialog.open(FilterComponent, {
       width: '73%',
-      height: '42%',
+      height: '45%',
       panelClass: 'my-class',
       data: { name: 'Data' },
     });
