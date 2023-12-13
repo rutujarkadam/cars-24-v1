@@ -1,0 +1,205 @@
+<div
+  style="flex-direction: column; display: flex; width: 100%"
+  *ngIf="carsOptions"
+>
+  <form [formGroup]="filterForm" style="background: lavender">
+    <div class="all-sub-div">
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select
+            placeholder="brand"
+            formControlName="brand"
+            (selectionChange)="onCarBrandSelect()"
+          >
+            <mat-option
+              *ngFor="let item of carsOptions[0].brandList"
+              [value]="item.brand"
+            >
+              {{ item.brand }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="model" formControlName="model">
+            <mat-option *ngFor="let item of modelOptions" [value]="item">
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="year" formControlName="makeYear">
+            <mat-option
+              *ngFor="let item of carsOptions[0].makeYear"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="variant" formControlName="variant">
+            <mat-option
+              *ngFor="let item of carsOptions[0].variants"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="km" formControlName="kmDriven">
+            <mat-option
+              *ngFor="let item of carsOptions[0].kmDriven"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+    </div>
+    <div class="all-sub-div">
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select
+            placeholder="features"
+            formControlName="features"
+            multiple="true"
+          >
+            <mat-option
+              *ngFor="let item of carsOptions[0].features"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="transmission" formControlName="transmission">
+            <mat-option
+              *ngFor="let item of carsOptions[0].transmissions"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select
+            placeholder="state"
+            formControlName="state"
+            (selectionChange)="onStateSelect()"
+          >
+            <mat-option
+              *ngFor="let item of carsOptions[0].states"
+              [value]="item.state"
+            >
+              {{ item.state }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="stateCode" formControlName="stateCode">
+            <mat-option *ngFor="let item of codeOptions" [value]="item">
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="city"
+            formControlName="city"
+          />
+        </mat-form-field>
+      </mat-card>
+    </div>
+    <div class="all-sub-div">
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="bodyType" formControlName="bodyType">
+            <mat-option
+              *ngFor="let item of carsOptions[0].bodyTypes"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="color" formControlName="color">
+            <mat-option
+              *ngFor="let item of carsOptions[0].colors"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="seats" formControlName="seats">
+            <mat-option
+              *ngFor="let item of carsOptions[0].seats"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <mat-form-field>
+          <mat-select placeholder="owner" formControlName="owner">
+            <mat-option
+              *ngFor="let item of carsOptions[0].owners"
+              [value]="item"
+            >
+              {{ item }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <mat-card class="mat-card">
+        <b
+          ><mat-form-field>
+            <input
+              matInput
+              type="number"
+              placeholder="price"
+              formControlName="price"
+            /> </mat-form-field
+        ></b>
+      </mat-card>
+    </div>
+    <button
+      style="margin-left: 491px"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="filterdata()"
+    >
+      Filter
+    </button>
+  </form>
+</div>

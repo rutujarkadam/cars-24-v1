@@ -1,0 +1,16 @@
+// .second-div {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+// }
+.all-sub-div {
+  flex-direction: row;
+  display: flex;
+  width: 33%;
+}
+//  border: solid gray;
+//   background: repeating-linear-gradient(to bottom, #e15f95, #d3302bb5);
+
+.mat-card {
+  background: repeating-linear-gradient(to bottom, #f5f5dc, rgb(245 245 220));
+  margin: 5px;
+}
