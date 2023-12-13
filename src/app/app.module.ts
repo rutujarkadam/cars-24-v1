@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { SortComponent } from './sort/sort.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { FilterComponent } from './filter/filter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     DashboardComponent,
     RegistrationComponent,
     SortComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
