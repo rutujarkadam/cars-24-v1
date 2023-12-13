@@ -20,7 +20,7 @@
       </div>
       <mat-card style="margin-top: 6px">
         <h2 style="margin-left: 125px; color: blue; font-family: none">
-          <b>userId</b>
+          <b>Username</b>
         </h2>
 
         <mat-form-field>
@@ -30,7 +30,7 @@
             matInput
             type="text"
             placeholder="userId"
-            formControlName="userId"
+            formControlName="username"
           />
         </mat-form-field>
 
@@ -45,6 +45,7 @@
             type="password"
             placeholder="password"
             formControlName="password"
+            autocomplete="off"
           />
         </mat-form-field>
         <button
@@ -52,10 +53,11 @@
           mat-raised-button
           color="primary"
           [disabled]="!loginForm.valid"
-          (click)="submit()"
+          (click)="login()"
         >
           Submit
         </button>
+        <p class="p">New to Cars24?<a routerLink="/registration" class="signUp">Sign Up</a></p>
       </mat-card>
     </form>
   </div>
