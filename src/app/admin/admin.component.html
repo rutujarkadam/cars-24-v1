@@ -1,5 +1,11 @@
 <form [formGroup]="carDetailsForm">
   <mat-card *ngIf="carsOptions">
+    <button 
+    mat-raised-button 
+    color="warn" 
+    (click)="logOut()"
+    class="logOut"
+    ><mat-icon>exit_to_app</mat-icon>Log Out</button>
     <mat-stepper linear="false" class="stepper">
       <mat-step label="Basic">
         <mat-card class="card">

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CarsService } from '../cars.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +14,10 @@ export class AdminComponent {
   modelOptions:any;
   carDetailsForm : FormGroup;
 codeOptions: any;
-constructor(private service : CarsService, private fb : FormBuilder){
+constructor(private service : CarsService,
+  private router : Router,
+  private toastr : ToastrService,
+  private fb : FormBuilder){
   this.carDetailsForm = this.fb.group({
     brand : ['',Validators.required],
     model : ['',Validators.required],
@@ -84,8 +89,13 @@ this.service.postCarInfo(body).subscribe((res:any)=>{
 (error)=>{
   console.log('error',error)
 });
-this.carDetailsForm.value.reset;
+this.carDetailsForm.reset();
 }
-
+logOut(){
+  localStorage.removeItem('token');
+  localStorage.removeItem('userType');
+  this.router.navigateByUrl('');
+  this.toastr.success('Logged out.')
+}
 
 }

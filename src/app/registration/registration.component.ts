@@ -12,11 +12,10 @@ import { Router } from '@angular/router';
 export class RegistrationComponent {
   hide1: boolean = true;
   hide2: boolean = true;
-  userData: any = [];
   registrationForm: FormGroup;
   encryptSecretKey = 'sdhfhhjrhjkhrireirohriegihgdfjgkdgjrekhru';
   gender = ['male', 'female'];
-  type = ['Admin', 'User'];
+  type = ['admin', 'user'];
   registredInfo: any;
 
   constructor(
@@ -26,7 +25,7 @@ export class RegistrationComponent {
     private router: Router
   ) {
     this.registrationForm = this.fb.group({
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       emailId: [
@@ -43,48 +42,44 @@ export class RegistrationComponent {
   }
   ngOnInit() {}
   submitdata() {
+    
     if (
       this.registrationForm.value.password ==
       this.registrationForm.value.confirmPassword
     ) {
-      this.registrationForm.value.password = this.encryptData(
-        this.registrationForm.value.password
-      );
-      delete this.registrationForm.value.confirmPassword;
+      this.registrationForm.value.encryptedPass = 
+        this.registrationForm.value.password;
+      let body = {
+        username: this.registrationForm.controls['username'].value,
+        password: this.registrationForm.value.encryptedPass,
+        confirmPassword: this.registrationForm.controls['confirmPassword'].value,
+        emailId: this.registrationForm.controls['emailId'].value,
+        gender: this.registrationForm.controls['gender'].value,
+        type : this.registrationForm.controls['type'].value
+      };
       console.log(this.registrationForm.value);
-      this.userData.push(this.registrationForm.value);
-      console.log('data', this.userData);
+      this.service.postUsers(body).subscribe(
+        (res: any) => {
+          console.log('success', res);
+        },
+        (error) => {
+          console.log('fail', error);
+        }
+      );
+      this.router.navigateByUrl('');
+      this.toastr.success("Registration successful.")
 
-      this.registrationForm.reset();
-      this.router.navigateByUrl('/login');
-      this.toastr.success('login sucessfully');
     } else {
-      this.toastr.error('password and confirmpassword does not match');
+      this.toastr.error('Password and Confirmpassword does not match');
     }
 
-    const userType = this.registrationForm.controls['type'].value;
+    // const userType = this.registrationForm.controls['type'].value;
     // if (userType === 'user') {
     //   this.router.navigateByUrl('/login');
     // } else {
     //   this.router.navigateByUrl('/admin');
     // }
 
-    let userdata = {
-      username: String,
-      password: String,
-      confirmPassword: String,
-      emailId: String,
-      gender: String,
-    };
-    this.service.postUsers(userdata).subscribe(
-      (res: any) => {
-        this.registredInfo = res;
-        console.log('success', res);
-      },
-      (error) => {
-        console.log('fail', error);
-      }
-    );
   }
   pass() {
     this.hide1 = !this.hide1;

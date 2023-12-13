@@ -22,4 +22,14 @@ export class CarsService {
     const url = 'http://localhost:3000/registerUser';
     return this.http.post(url, body);
   }
+  getUser(body:any) {
+    const url = 'http://localhost:3000/login';
+    return this.http.post(url, body);
+  }
+  isLoggedIn(){
+    return !!localStorage.getItem('token');
+  }
+  getType(){
+    return localStorage.getItem('userType');
+  }
 }

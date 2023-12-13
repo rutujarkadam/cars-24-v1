@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CarsService } from '../cars.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SortComponent } from '../sort/sort.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FilterComponent } from '../filter/filter.component';
@@ -13,11 +15,12 @@ export class DashboardComponent {
   carsFilterData: any = [];
   allcar: any = [];
   cararray: any = [];
-
   constructor(
     private service: CarsService,
     private sort: MatDialog,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router : Router,
+    private toastr : ToastrService
   ) {}
 
   ngOnInit() {
@@ -159,4 +162,10 @@ export class DashboardComponent {
   }
 
   Reset() {}
+  logOut(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('userType');
+    this.router.navigateByUrl('');
+    this.toastr.success('Logged out.')
+  }
 }
