@@ -1,0 +1,56 @@
+<div>
+  <div class="abc">
+    <mat-card
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+      "
+    >
+      <mat-radio-group class="column">
+        <div>
+          <label><b>Price</b></label>
+        </div>
+        <div>
+          <mat-radio-button
+            value="priceLowToHigh"
+            (click)="sortByData('priceLowToHigh')"
+            >Low to High</mat-radio-button
+          >
+          <mat-radio-button
+            value="PriceHighToLow"
+            (click)="sortByData('PriceHighToLow')"
+            >High to Low</mat-radio-button
+          >
+        </div>
+        <div>
+          <label><b>Car's age(Year)</b></label>
+        </div>
+        <div>
+          <mat-radio-button value="ageNew" (click)="sortByData('ageNew')"
+            >New to Old</mat-radio-button
+          >
+
+          <mat-radio-button value="ageOld" (click)="sortByData('ageOld')"
+            >Old to New</mat-radio-button
+          >
+        </div>
+        <!-- <div>
+          <label><b>KMs Driven</b></label>
+        </div>
+        <div>
+          <mat-radio-button value="kmLow" (click)="sortByData('kmLow')"
+            >Low to High</mat-radio-button
+          >
+
+          <mat-radio-button value="kmHigh" (click)="sortByData('kmHigh')"
+            >High to Low</mat-radio-button
+          >
+        </div> -->
+      </mat-radio-group>
+    </mat-card>
+  </div>
+</div>

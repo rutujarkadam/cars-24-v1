@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CarsService } from '../cars.service';
+import { SortComponent } from '../sort/sort.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FilterComponent } from '../filter/filter.component';
 @Component({
@@ -12,7 +13,13 @@ export class DashboardComponent {
   carsFilterData: any = [];
   allcar: any = [];
   cararray: any = [];
-  constructor(private service: CarsService, private dialog: MatDialog) {}
+
+  constructor(
+    private service: CarsService,
+    private sort: MatDialog,
+    private dialog: MatDialog
+  ) {}
+
   ngOnInit() {
     this.service.getCarInfo().subscribe(
       (res: any) => {
@@ -24,6 +31,18 @@ export class DashboardComponent {
         console.log('dashboardFailed', error);
       }
     );
+  }
+
+  getSortData() {
+    const dialogRef = this.sort.open(SortComponent, {
+      width: '50',
+      height: '70',
+      data: { name: 'data' },
+    });
+    dialogRef.afterClosed().subscribe((res: any) => {
+      console.log('sort  was closed', res);
+      this.sortData(res);
+    });
   }
   getFilterData() {
     const dialogRef = this.dialog.open(FilterComponent, {
@@ -81,7 +100,6 @@ export class DashboardComponent {
       });
     }
   }
-  getSortData() {}
   findCar() {
     this.cararray = this.allcar.filter((item: any) => {
       if (
@@ -92,4 +110,38 @@ export class DashboardComponent {
       }
     });
   }
+  sortData(argument: any) {
+    if (argument == 'priceLowToHigh') {
+      this.allcar.sort(function (a: any, b: any) {
+        return a.price - b.price;
+      });
+    }
+    if (argument == 'priceHighToLow') {
+      this.allcar.sort(function (a: any, b: any) {
+        return b.price - a.price;
+      });
+    }
+    if (argument == 'ageNew') {
+      this.allcar.sort(function (a: any, b: any) {
+        return a.makeYear - b.makeYear;
+      });
+    }
+    if (argument == 'ageOld') {
+      this.allcar.sort(function (a: any, b: any) {
+        return b.makeYear - a.makeYear;
+      });
+    }
+    // if (argument == 'kmHigh') {
+    //   this.allcar.sort(function (a: any, b: any) {
+    //     return b.kmDriven - a.kmDriven;
+    //   });
+    // }
+    // if (argument == 'kmLow') {
+    //   this.allcar.sort(function (a: any, b: any) {
+    //     return a.kmDriven - b.kmDriven;
+    //   });
+    // }
+  }
+
+  Reset() {}
 }

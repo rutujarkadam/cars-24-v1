@@ -18,8 +18,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ToastrModule } from 'ngx-toastr';
+import { SortComponent } from './sort/sort.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
-import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginComponent,
     DashboardComponent,
     RegistrationComponent,
+    SortComponent,
     FilterComponent,
   ],
   imports: [
@@ -45,6 +48,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     MatStepperModule,
     ToastrModule.forRoot(),
+    MatRadioModule,
     MatDialogModule,
   ],
   providers: [],

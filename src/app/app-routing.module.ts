@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SortComponent } from './sort/sort.component';
 import { FilterComponent } from './filter/filter.component';
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'registration',
     component: RegistrationComponent,
+  },
+  {
+    path: 'sort',
+    component: SortComponent,
   },
   {
     path: 'filter',
