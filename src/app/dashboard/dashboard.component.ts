@@ -99,6 +99,21 @@ export class DashboardComponent {
         return item.state == result.state;
       });
     }
+    if (result.stateCode) {
+      this.allcar = this.allcar.filter((item: any) => {
+        return item.stateCode == result.stateCode;
+      });
+    }
+    if (result.city) {
+      this.allcar = this.allcar.filter((item: any) => {
+        return item.city == result.city;
+      });
+    }
+    if (result.bodyType) {
+      this.allcar = this.allcar.filter((item: any) => {
+        return item.bodyType == result.bodyType;
+      });
+    }
   }
   findCar() {
     this.cararray = this.allcar.filter((item: any) => {
