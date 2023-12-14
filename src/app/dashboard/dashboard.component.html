@@ -14,6 +14,11 @@
       </button>
     </div>
     <div>
+      <button mat-raised-button (click)="reset()" color="warn" class="btnclass">
+        Reset
+      </button>
+    </div>
+    <div>
       <mat-form-field style="margin-left: 100px; width: 200px; height: 60px">
         <input
           style="height: 60"
@@ -87,6 +92,10 @@
             >Discounted price: ₹{{ item.discountPrice }}</b
           >
         </p>
+        <button mat-raised-button (click)="allBookedCars(item)">BookCar</button>
+        <button mat-raised-button style="margin-left: 10px">
+          Add to WishList
+        </button>
       </div>
     </mat-card>
   </div>

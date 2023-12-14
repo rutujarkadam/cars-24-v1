@@ -22,6 +22,9 @@ import { SortComponent } from './sort/sort.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
+import { CouponsComponent } from './coupons/coupons.component';
+import { MatTableModule} from '@angular/material/table';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +34,7 @@ import { FilterComponent } from './filter/filter.component';
     RegistrationComponent,
     SortComponent,
     FilterComponent,
+    CouponsComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +54,9 @@ import { FilterComponent } from './filter/filter.component';
     ToastrModule.forRoot(),
     MatRadioModule,
     MatDialogModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

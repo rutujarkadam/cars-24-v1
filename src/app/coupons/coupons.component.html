@@ -1,0 +1,63 @@
+<mat-card class="dialog">
+    <h1 *ngIf="!coupons"><b>Create a new Coupon</b></h1>
+        <mat-card class="outerMatCard" *ngIf="!coupons">
+            <form [formGroup]="newCoupon" > 
+            <mat-card class="innerMatCard">
+                <h2>Enter the coupon code</h2>
+                <mat-form-field>
+                    <mat-label>Type Coupon Code in Uppercase</mat-label>
+                    <input matInput type="text" formControlName="couponCode">
+                </mat-form-field> 
+            </mat-card>
+            <mat-card class="innerMatCard">
+                <h2>Enter how much discount you want to give</h2>
+                <mat-form-field>
+                    <mat-label>Enter discount in %</mat-label>
+                    <input matInput type="number" formControlName="couponPercentage">
+                </mat-form-field>
+            </mat-card>
+                <button 
+                mat-raised-button 
+                color="primary" 
+                (click)="createCoupon()"
+                class="createButton"
+                >Create</button>
+            </form>
+                <button 
+                mat-raised-button 
+                color="accent" 
+                (click)="showAllCoupons()"
+                class="delete"
+                >Show all Coupons</button>
+        </mat-card>
+    
+    <mat-card *ngIf="coupons">
+        <p><a (click)="back()" class="delete"s>Back</a></p>
+        <table mat-table [dataSource]="allCoupons" class="mat-elevation-z8">
+            <ng-container matColumnDef="couponCode">
+                <th mat-header-cell *matHeaderCellDef>Coupon Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.couponCode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="couponPercentage">
+                <th mat-header-cell *matHeaderCellDef> Discount % </th>
+                <td mat-cell *matCellDef="let element"> {{element.couponPercentage}} </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let element"><p><a (click)="deleteCoupon(element._id)" class="delete">Delete</a></p></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <!-- <tr>
+                <th>Coupon Code</th>
+                <th>Coupon Percentage</th>
+                <th>Delete Coupon</th>
+            </tr>
+            <tr *ngFor="let item of allCoupons">
+                <td>{{item.couponCode}}</td>
+                <td>{{item.couponPercentage}}</td>
+                <td><p><a (click)="deleteCoupon(item._id)" class="delete">Delete</a></p></td>
+            </tr> -->
+        </table>
+    </mat-card>
+</mat-card>
