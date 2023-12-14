@@ -1,9 +1,11 @@
-<i class="fa-fa-heart" aria-hidden="true" style="font-size:60px;color:red;"></i><button 
-    mat-raised-button 
-    color="warn" 
-    (click)="logOut()"
-    class="logOut"
-    ><mat-icon>exit_to_app</mat-icon>Log Out</button>
+<i
+  class="fa-fa-heart"
+  aria-hidden="true"
+  style="font-size: 60px; color: red"
+></i
+><button mat-raised-button color="warn" (click)="logOut()" class="logOut">
+  <mat-icon>exit_to_app</mat-icon>Log Out
+</button>
 <mat-card class="firstmat">
   <div class="innerdiv">
     <div>
@@ -73,8 +75,17 @@
           <li>{{ item.color }}</li>
         </ul>
         <p>
-          <b style="font-size: 18px">RS:{{ item.price }}</b>
-          <b style="margin-left: 50px; font-size: 15px">{{ item.kmDriven }}</b>
+          <b style="font-size: 15px"
+            >₹<span style="text-decoration: line-through">{{
+              item.price
+            }}</span></b
+          >
+          <b style="margin-left: 50px; font-size: 10px">{{ item.kmDriven }}</b>
+        </p>
+        <p>
+          <b style="font-size: 18px"
+            >Discounted price: ₹{{ item.discountPrice }}</b
+          >
         </p>
       </div>
     </mat-card>
