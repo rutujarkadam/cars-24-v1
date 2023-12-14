@@ -1,0 +1,31 @@
+.dialog{
+    align-content: center;
+    text-align: center;
+    background-color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10%;
+    padding: 20px;
+}
+.innerMatCard{
+    width: 450px;
+    background-color: aliceblue;
+    padding: 10px;
+    align-items: center;
+    margin: 10px;
+}
+mat-form-field{
+    width: 300px;
+}
+.outerMatCard{
+    align-items: center;
+    background-color: darkgray;
+    padding: 20px;
+}
+.createButton{
+    margin-top: 20px;
+}
+.delete{
+    cursor: pointer;
+    margin-top: 10px;
+}
+

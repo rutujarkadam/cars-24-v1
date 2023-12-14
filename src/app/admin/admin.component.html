@@ -1,11 +1,19 @@
 <form [formGroup]="carDetailsForm">
-  <mat-card *ngIf="carsOptions">
+  <div class="buttondiv">
+      <button
+    mat-raised-button
+    color="primary"
+    (click)="couponDialog()"
+    class="couponButton"
+    >Crate a New Coupon</button>
     <button 
     mat-raised-button 
     color="warn" 
     (click)="logOut()"
-    class="logOut"
+    class="logout"
     ><mat-icon>exit_to_app</mat-icon>Log Out</button>
+  </div>
+  <mat-card *ngIf="carsOptions">
     <mat-stepper linear="false" class="stepper">
       <mat-step label="Basic">
         <mat-card class="card">

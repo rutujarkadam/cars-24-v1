@@ -20,8 +20,17 @@ button{
     background-color: #aea5ea;
     border: solid white;
 }
-.logOut{
-  margin-right: 20px;
-  margin-top: 20px;
+.logout{
+  margin: 10px;
   width: fit-content;
+
 }
+.couponButton{
+  width: fit-content;
+  margin-left: 1180px;
+}
+.buttonDiv{
+  display: flex;
+    flex-direction: row;
+}
+
