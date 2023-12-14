@@ -24,6 +24,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { MatTableModule} from '@angular/material/table';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,7 @@ import { MatTableModule} from '@angular/material/table';
     MatDialogModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
