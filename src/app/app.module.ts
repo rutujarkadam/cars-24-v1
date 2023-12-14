@@ -22,6 +22,7 @@ import { SortComponent } from './sort/sort.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,7 @@ import { FilterComponent } from './filter/filter.component';
     MatRadioModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
