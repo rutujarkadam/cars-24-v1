@@ -22,6 +22,8 @@ import { SortComponent } from './sort/sort.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
+import { CouponsComponent } from './coupons/coupons.component';
+import { MatTableModule} from '@angular/material/table';
 import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { DatePipe } from '@angular/common';
     RegistrationComponent,
     SortComponent,
     FilterComponent,
+    CouponsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { DatePipe } from '@angular/common';
     ToastrModule.forRoot(),
     MatRadioModule,
     MatDialogModule,
+    MatTableModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

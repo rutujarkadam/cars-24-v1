@@ -3,6 +3,8 @@ import { CarsService } from '../cars.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CouponsComponent } from '../coupons/coupons.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin',
@@ -17,6 +19,7 @@ codeOptions: any;
 constructor(private service : CarsService,
   private router : Router,
   private toastr : ToastrService,
+  private dialog : MatDialog,
   private fb : FormBuilder){
   this.carDetailsForm = this.fb.group({
     brand : ['',Validators.required],
@@ -96,6 +99,16 @@ logOut(){
   localStorage.removeItem('userType');
   this.router.navigateByUrl('');
   this.toastr.success('Logged out.')
+}
+couponDialog(){
+  const dialogRef = this.dialog.open(CouponsComponent, {
+    width: '40%',
+    height: '76%',
+    data: { name: 'Data' },
+  });
+  dialogRef.afterClosed().subscribe((result: any) => {
+    console.log('The dialog was closed', result);
+  });
 }
 
 }

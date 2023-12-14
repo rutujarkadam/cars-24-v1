@@ -32,4 +32,15 @@ export class CarsService {
   getType(){
     return localStorage.getItem('userType');
   }
+  createCoupon(body:any){
+    const url = 'http://localhost:3000/createCoupon';
+    return this.http.post(url, body);
+  }
+  getAllCoupons(){
+    return this.http.get('http://localhost:3000/getAllCoupons')
+  }
+  deleteCoupon(id:any){
+    const url = 'http://localhost:3000/deleteCoupons/'+id.toString();
+    return this.http.delete(url);
+  }
 }
